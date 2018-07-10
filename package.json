@@ -1,9 +1,17 @@
 {
-  "name": "brain-games",
+  "name": "@leusmaximus/brain-games",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
     "babel-node": "babel-node"
   },
   "repository": {
