@@ -20,6 +20,12 @@
   },
   "author": "Maksym Leonidov",
   "license": "ISC",
+  "keywords": [
+    "game",
+    "brain games",
+    "console games",
+    "terminal games"
+  ],
   "bugs": {
     "url": "https://github.com/LeusMaximus/project-lvl1-s304/issues"
   },
