@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
-import game from '../brainEven';
+import game from '../games/brainEven';
 
-game();
+const questionsNumber = 3;
+const maxNumber = 1000;
+
+game(questionsNumber, maxNumber);
