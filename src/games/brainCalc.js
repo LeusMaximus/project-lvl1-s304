@@ -5,21 +5,8 @@ export default () => {
   const maxOperandValue = 100;
   const MathOperationsList = ['+', '-', '*'];
 
-  const getRandomExpression = (maxNumberValue, MathOperations) => {
-    const firstOperand = getRandomInt(0, maxNumberValue);
-    const secondOperand = getRandomInt(0, maxNumberValue);
-    const operation = MathOperations[getRandomInt(0, MathOperations.length)];
-
-    return `${firstOperand} ${operation} ${secondOperand}`;
-  };
-
-  const calcExpression = (expr) => {
-    const exprParts = expr.split(' ');
-    const firstOperand = Number(exprParts[0]);
-    const secondOperand = Number(exprParts[2]);
-    const operand = exprParts[1];
-
-    switch (operand) {
+  const calcExpression = (firstOperand, secondOperand, operation) => {
+    switch (operation) {
       case '+':
         return firstOperand + secondOperand;
 
@@ -30,14 +17,25 @@ export default () => {
         return firstOperand * secondOperand;
 
       default:
-        throw new Error(`Unknown operand '${operand}'`);
+        throw new Error(`Unknown operation '${operation}'`);
     }
   };
 
   // game options
   const gameDescription = 'What is the result of the expression?';
-  const getGameQuestion = () => getRandomExpression(maxOperandValue, MathOperationsList);
-  const getCorrectAnswer = question => String(calcExpression(question));
 
-  gameSkeleton(gameDescription, getGameQuestion, getCorrectAnswer);
+  const generateQuestionAnswer = function* generateQuestionAnswer() {
+    const firstOperand = getRandomInt(0, maxOperandValue);
+    const secondOperand = getRandomInt(0, maxOperandValue);
+    const operation = MathOperationsList[getRandomInt(0, MathOperationsList.length)];
+
+
+    const question = `${firstOperand} ${operation} ${secondOperand}`;
+    yield question;
+
+    const answer = String(calcExpression(firstOperand, secondOperand, operation));
+    yield answer;
+  };
+
+  gameSkeleton(gameDescription, generateQuestionAnswer);
 };
