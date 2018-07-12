@@ -12,8 +12,8 @@ export default (gameDescription, getGameQuestion, getCorrectAnswer) => {
   console.log('');
 
   // start game
-  const gameIter = (remainingSteps) => {
-    if (!remainingSteps) {
+  const gameIter = (currentStep) => {
+    if (currentStep === 0) {
       console.log(`Congratulations, ${userName}!`);
       return;
     }
@@ -24,7 +24,6 @@ export default (gameDescription, getGameQuestion, getCorrectAnswer) => {
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
-
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
@@ -33,7 +32,7 @@ export default (gameDescription, getGameQuestion, getCorrectAnswer) => {
 
     console.log('Correct!');
 
-    gameIter(remainingSteps - 1);
+    gameIter(currentStep - 1);
   };
 
   gameIter(stepsNumber);
