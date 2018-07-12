@@ -1,14 +1,13 @@
 import readlineSync from 'readline-sync';
-import * as messages from './messagesConstants';
 
 export default (gameDescription, getGameQuestion, getCorrectAnswer) => {
   const stepsNumber = 3;
-  console.log(messages.WELCOME_MESSAGE);
+  console.log('Welcome to the Brain Games!');
   console.log(gameDescription);
   console.log('');
 
-  const userName = readlineSync.question(messages.ASK_NAME_MESSAGE);
-  console.log(`${messages.GREETING_MESSAGE} ${userName}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   console.log('');
 
   // start game

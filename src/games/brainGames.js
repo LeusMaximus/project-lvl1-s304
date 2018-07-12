@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
-import * as messages from '../messagesConstants';
 
 export default () => {
-  console.log(messages.WELCOME_MESSAGE);
+  console.log('Welcome to the Brain Games!');
 
-  const userName = readlineSync.question(messages.ASK_NAME_MESSAGE);
+  const userName = readlineSync.question('May I have your name? ');
 
-  console.log(`${messages.GREETING_MESSAGE} ${userName}!`);
+  console.log(`Hello, ${userName}!`);
 };

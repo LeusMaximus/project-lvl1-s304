@@ -1,5 +1,4 @@
 import { getRandomInt, isEven } from '../utils';
-
 import gameSkeleton from '../gameSkeleton';
 
 export default () => {

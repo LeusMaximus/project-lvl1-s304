@@ -1,5 +1,4 @@
 import { getRandomInt } from '../utils';
-
 import gameSkeleton from '../gameSkeleton';
 
 export default () => {
