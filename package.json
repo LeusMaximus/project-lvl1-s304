@@ -1,6 +1,6 @@
 {
   "name": "@leusmaximus/brain-games",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "During the project it is necessary to implement a set of mini-games that are launched from the console. These games are similar to what is commonly called \"Brain Games\".",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
