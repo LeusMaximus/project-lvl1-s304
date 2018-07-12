@@ -36,10 +36,9 @@ export default () => {
   };
 
   // game options
-  const stepsNumber = 3;
   const gameDescription = 'What is the result of the expression?';
   const getGameQuestion = () => getRandomExpression(maxOperandValue, MathOperationsList);
   const getCorrectAnswer = question => String(calcExpression(question));
 
-  gameSkeleton(stepsNumber, gameDescription, getGameQuestion, getCorrectAnswer);
+  gameSkeleton(gameDescription, getGameQuestion, getCorrectAnswer);
 };

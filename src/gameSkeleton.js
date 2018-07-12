@@ -1,7 +1,8 @@
 import readlineSync from 'readline-sync';
 import * as messages from './messagesConstants';
 
-export default (stepsNumber, gameDescription, getGameQuestion, getCorrectAnswer) => {
+export default (gameDescription, getGameQuestion, getCorrectAnswer) => {
+  const stepsNumber = 3;
   console.log(messages.WELCOME_MESSAGE);
   console.log(gameDescription);
   console.log('');
