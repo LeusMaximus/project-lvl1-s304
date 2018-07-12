@@ -46,6 +46,7 @@
     "eslint-plugin-import": "^2.13.0"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "readline-sync": "^1.4.9"
   }
 }
