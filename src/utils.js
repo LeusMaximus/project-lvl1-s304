@@ -4,6 +4,6 @@
  * @param {number} max
  * @returns {number}
  */
-export const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+export const getRandomInt = (min, max) => Math.floor(min + Math.random() * (max - min));
 
 export const isEven = number => number % 2 === 0;
