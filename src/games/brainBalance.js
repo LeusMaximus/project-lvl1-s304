@@ -35,7 +35,7 @@ export default () => {
   };
 
   // game options
-  const gameDescription = 'Find the greatest common divisor of given numbers.';
+  const gameDescription = 'Balance the given number.';
 
   const generateQuestionAnswer = () => {
     const number = getRandomInt(0, maxOperandValue);
