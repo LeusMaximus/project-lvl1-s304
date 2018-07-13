@@ -9,12 +9,11 @@ export default () => {
   // game options
   const gameDescription = `Answer "${positivePoint}" if number even otherwise answer "${negativePoint}".`;
 
-  const generateQuestionAnswer = function* generateQuestionAnswer() {
+  const generateQuestionAnswer = () => {
     const question = getRandomInt(0, maxNumber);
-    yield question;
-
     const answer = isEven(question) ? negativePoint : positivePoint;
-    yield answer;
+
+    return [question, answer];
   };
 
   gameSkeleton(gameDescription, generateQuestionAnswer);

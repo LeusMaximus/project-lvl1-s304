@@ -24,17 +24,16 @@ export default () => {
   // game options
   const gameDescription = 'What is the result of the expression?';
 
-  const generateQuestionAnswer = function* generateQuestionAnswer() {
+  const generateQuestionAnswer = () => {
     const firstOperand = getRandomInt(0, maxOperandValue);
     const secondOperand = getRandomInt(0, maxOperandValue);
     const operation = MathOperationsList[getRandomInt(0, MathOperationsList.length)];
 
 
     const question = `${firstOperand} ${operation} ${secondOperand}`;
-    yield question;
-
     const answer = String(calcExpression(firstOperand, secondOperand, operation));
-    yield answer;
+
+    return [question, answer];
   };
 
   gameSkeleton(gameDescription, generateQuestionAnswer);

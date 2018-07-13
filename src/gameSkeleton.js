@@ -17,14 +17,11 @@ export default (gameDescription, generateQuestionAnswer) => {
       return;
     }
 
-    const questionAnswer = generateQuestionAnswer();
-
-    const question = questionAnswer.next().value;
+    const [question, correctAnswer] = generateQuestionAnswer();
 
     console.log(`Question: ${question}`);
 
     const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = questionAnswer.next().value;
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);

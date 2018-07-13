@@ -7,15 +7,14 @@ export default () => {
   // game options
   const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-  const generateQuestionAnswer = function* generateQuestionAnswer() {
+  const generateQuestionAnswer = () => {
     const firstOperand = getRandomInt(0, maxOperandValue);
     const secondOperand = getRandomInt(0, maxOperandValue);
 
     const question = `${firstOperand} ${secondOperand}`;
-    yield question;
-
     const answer = String(getGcd(firstOperand, secondOperand));
-    yield answer;
+
+    return [question, answer];
   };
 
   gameSkeleton(gameDescription, generateQuestionAnswer);
