@@ -23,12 +23,13 @@ export default () => {
         return Number(numbers.join(''));
       }
 
-      const newNumbers = [...numbers];
+      const newNumbers = [
+        firstNumber + 1,
+        ...numbers.slice(1, -1),
+        lastNumber - 1,
+      ].sort(sortNumbers);
 
-      newNumbers[0] = firstNumber + 1;
-      newNumbers[newNumbers.length - 1] = lastNumber - 1;
-
-      return iter(newNumbers.sort(sortNumbers));
+      return iter(newNumbers);
     };
 
     return iter(numbersArr);
