@@ -1,10 +1,12 @@
-import { getRandomInt, isEven } from '../utils';
+import getRandomInt from '../utils';
 import gameSkeleton from '../gameSkeleton';
 
 export default () => {
   const maxNumber = 1000;
   const positivePoint = 'yes';
   const negativePoint = 'no';
+
+  const isEven = number => number % 2 === 0;
 
   // game options
   const gameDescription = `Answer "${positivePoint}" if number even otherwise answer "${negativePoint}".`;
