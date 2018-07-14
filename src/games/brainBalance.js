@@ -17,8 +17,9 @@ const sort = (arr, predicate) => {
 
 const balanceNumber = (number) => {
   const strNumber = String(number);
+  const numberSize = strNumber.length;
 
-  if (strNumber.length === 1) {
+  if (numberSize === 1) {
     return number;
   }
 
@@ -29,7 +30,7 @@ const balanceNumber = (number) => {
     const lastNumber = Number(numbers[numbers.length - 1]);
 
     if (lastNumber - firstNumber <= 1) {
-      return Number(numbers.join(''));
+      return numbers.join('');
     }
 
     const newNumbers = [firstNumber + 1, ...numbers.slice(1, -1), lastNumber - 1];
