@@ -3,6 +3,18 @@ import gameSkeleton from '../gameSkeleton';
 
 const maxOperandValue = 10000;
 
+const compareNumbers = (a, b) => Number(a) - Number(b);
+
+const sort = (arr, predicate) => {
+  const clonedArr = [...arr];
+
+  if (typeof (predicate) === 'function') {
+    return clonedArr.sort(predicate);
+  }
+
+  return clonedArr.sort();
+};
+
 const balanceNumber = (number) => {
   const strNumber = String(number);
 
@@ -10,9 +22,7 @@ const balanceNumber = (number) => {
     return number;
   }
 
-  const sortNumbers = (a, b) => Number(a) - Number(b);
-
-  const numbersArr = strNumber.split('').sort(sortNumbers);
+  const numbersArr = sort(strNumber.split(''), compareNumbers);
 
   const iter = (numbers) => {
     const firstNumber = Number(numbers[0]);
@@ -22,13 +32,10 @@ const balanceNumber = (number) => {
       return Number(numbers.join(''));
     }
 
-    const newNumbers = [
-      firstNumber + 1,
-      ...numbers.slice(1, -1),
-      lastNumber - 1,
-    ].sort(sortNumbers);
+    const newNumbers = [firstNumber + 1, ...numbers.slice(1, -1), lastNumber - 1];
+    const sortedNumbers = sort(newNumbers, compareNumbers);
 
-    return iter(newNumbers);
+    return iter(sortedNumbers);
   };
 
   return iter(numbersArr);
