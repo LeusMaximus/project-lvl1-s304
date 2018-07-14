@@ -8,8 +8,10 @@ const isPrime = (number) => {
     return false;
   }
 
+  const maxPossibleDivider = Math.floor(number / 2);
+
   const iter = (divider) => {
-    if (divider < 2) {
+    if (divider > maxPossibleDivider) {
       return true;
     }
 
@@ -17,14 +19,14 @@ const isPrime = (number) => {
       return false;
     }
 
-    return iter(divider - 1);
+    return iter(divider + 1);
   };
 
-  return iter(Math.floor(number / 2));
+  return iter(2);
 };
 
 // game options
-const gameDescription = 'Is this number prime?';
+const gameDescription = 'Answer "yes" if number is prime otherwise answer "no".';
 
 const generateQuestionAnswer = () => {
   const question = getRandomInt(0, maxNumber);
